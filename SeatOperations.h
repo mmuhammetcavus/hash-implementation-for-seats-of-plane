@@ -9,7 +9,9 @@ using namespace std;
 struct Person{
     int type=0;
     int line=0, seatNumber=0;
-    int type3LastOperation=0;
+    int lastOperation=0;
+    int lastLine=0 ;
+    int lastSeatNumber=0;
 };
 
 class SeatOperations{
@@ -22,6 +24,7 @@ public:
     SeatOperations(int N, int M);
     void addNewPerson(int personType, const string& ticketInfo);
     void printAllSeats(ofstream& outFile);
+    void locate(Person &p);
 
     // YOU CAN ADD YOUR HELPER FUNCTIONS
 
