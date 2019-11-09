@@ -101,15 +101,18 @@ void SeatOperations::locate(Person &p){
                 p.lastSeatNumber=0;
                 p.lastLine=1-p.line;
                 lines[p.lastLine][0]=p;
+                if(p2.type!=0) {
+                    locate(p2);
+                }
             }
             else {
                 p2=lines[p.lastLine][seatNo];
                 p.lastOperation++;
                 p.lastSeatNumber=seatNo;
                 lines[p.lastLine][p.lastSeatNumber]=p;
-            }
-            if(p2.type!=0) {
-                locate(p2);
+                if(p2.type!=0) {
+                    locate(p2);
+                }
             }
         }
 
@@ -137,9 +140,9 @@ void SeatOperations::locate(Person &p){
                     locate(p2);
                 }
             } else if(seatNo<M+N) {
-                p2=lines[1-p.lastLine][seatNo-p.lastLine];
+                p2=lines[1-p.lastLine][seatNo-lines[p.lastLine].size()];
                 p.lastOperation++;
-                p.lastSeatNumber=seatNo-p.lastLine;
+                p.lastSeatNumber=seatNo-lines[p.lastLine].size();
                 p.lastLine=1-p.lastLine;
                 lines[p.lastLine][p.lastSeatNumber]=p;
                 if(p2.type!=0) {
