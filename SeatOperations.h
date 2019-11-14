@@ -24,7 +24,7 @@ public:
     SeatOperations(int N, int M);
     void addNewPerson(int personType, const string& ticketInfo);
     void printAllSeats(ofstream& outFile);
-    void locate(Person &p);
+    Person locate(Person &p);
 
     // YOU CAN ADD YOUR HELPER FUNCTIONS
 
